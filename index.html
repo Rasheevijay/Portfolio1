@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rashee Vijay | Portfolio</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Poppins', sans-serif;
+    }
+
+    body{
+      background:#0b0b12;
+      color:white;
+      transition:0.4s;
+    }
+
+    body.light{
+      background:white;
+      color:black;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:20px 10%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(255,255,255,0.03);
+      backdrop-filter:blur(10px);
+      position:fixed;
+      top:0;
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    nav h1{
+      color:#a855f7;
+      font-size:28px;
+      font-weight:700;
+    }
+
+    nav ul{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    body.light nav ul li a{
+      color:black;
+    }
+
+    nav ul li a:hover{
+      color:#a855f7;
+    }
+
+    .toggle-btn{
+      padding:10px 15px;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      background:#a855f7;
+      color:white;
+      font-weight:600;
+    }
+
+    /* SECTIONS */
+
+    section{
+      min-height:100vh;
+      padding:120px 10%;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:60px;
+    }
+
+    .hero-text{
+      flex:1;
+    }
+
+    .hero-text h2{
+      font-size:60px;
+      line-height:1.2;
+    }
+
+    .hero-text span{
+      color:#a855f7;
+    }
+
+    .typing{
+      color:#a855f7;
+      margin-top:15px;
+      font-size:25px;
+      font-weight:600;
+    }
+
+    .hero-text p{
+      margin-top:25px;
+      line-height:1.9;
+      color:#bcbcbc;
+      max-width:600px;
+    }
+
+    body.light .hero-text p{
+      color:#333;
+    }
+
+    /* BUTTON */
+
+    .btn{
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 28px;
+      background:#a855f7;
+      color:white;
+      text-decoration:none;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.3s;
+      border:none;
+      cursor:pointer;
+      box-shadow:0 10px 25px rgba(168,85,247,0.3);
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+    }
+
+    /* IMAGE */
+
+    .hero-image img{
+      width:340px;
+      border-radius:25px;
+      border:4px solid #a855f7;
+      box-shadow:0 0 25px #a855f755;
+      object-fit:cover;
+    }
+
+    /* SECTION TITLE */
+
+    .title{
+      font-size:42px;
+      margin-bottom:40px;
+      color:#a855f7;
+      font-weight:700;
+    }
+
+    /* GLASS EFFECT */
+
+    .glass{
+      background:rgba(255,255,255,0.04);
+      padding:35px;
+      border-radius:25px;
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    /* ABOUT */
+
+    .glass p{
+      line-height:2;
+      color:#d0d0d0;
+    }
+
+    /* SKILLS */
+
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .card h3{
+      font-size:22px;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 10px 30px rgba(168,85,247,0.3);
+    }
+
+    /* PROJECTS */
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .project-card{
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 10px 30px rgba(168,85,247,0.3);
+    }
+
+    .project-card h3{
+      color:#a855f7;
+      margin-bottom:15px;
+    }
+
+    .project-card p{
+      color:#c9c9c9;
+      line-height:1.8;
+    }
+
+    /* CONTACT FORM */
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    input,
+    textarea{
+      padding:16px;
+      border:none;
+      border-radius:12px;
+      outline:none;
+      background:#1a1a25;
+      color:white;
+      font-size:15px;
+    }
+
+    textarea{
+      resize:none;
+    }
+
+    /* SOCIAL ICONS */
+
+    .social-icons{
+      margin-top:25px;
+      display:flex;
+      gap:20px;
+    }
+
+    .social-icons a{
+      color:#a855f7;
+      font-size:30px;
+      transition:0.3s;
+    }
+
+    .social-icons a:hover{
+      transform:scale(1.2);
+    }
+
+    /* FOOTER */
+
+    footer{
+      text-align:center;
+      padding:25px;
+      background:#111119;
+      color:#a9a9a9;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .hero-text h2{
+        font-size:42px;
+      }
+
+      .hero-text p{
+        margin:auto;
+        margin-top:20px;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero-image img{
+        width:280px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <h1>Rashee Vijay</h1>
+
+    <ul>
+
+      <li><a href="#home">Home</a></li>
+
+      <li><a href="#about">About</a></li>
+
+      <li><a href="#skills">Skills</a></li>
+
+      <li><a href="#projects">Projects</a></li>
+
+      <li><a href="#contact">Contact</a></li>
+
+    </ul>
+
+    <button class="toggle-btn" onclick="toggleMode()">
+      Dark/Light
+    </button>
+
+  </nav>
+
+  <!-- HOME -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <h2>Hello, I'm <span>Rashee Vijay</span></h2>
+
+      <div class="typing" id="typing"></div>
+
+      <p>
+        MCA Student | Web Developer | UI Designer passionate
+        about creating modern, responsive, and professional
+        websites with beautiful user experiences.
+      </p>
+
+      <!-- RESUME -->
+
+      <a href="resume.pdf" class="btn" download>
+        Download Resume
+      </a>
+
+      <!-- SOCIAL ICONS -->
+
+      <div class="social-icons">
+
+        <!-- GITHUB -->
+
+        <a href="https://github.com/YOUR_USERNAME" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+
+        <!-- INSTAGRAM -->
+
+        <a href="https://instagram.com/YOUR_USERNAME" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <!-- LINKEDIN -->
+
+        <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- IMAGE -->
+
+    <div class="hero-image">
+
+      <img src="UJVZ3201.JPG" alt="profile">
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="title">About Me</h2>
+
+    <div class="glass">
+
+      <p>
+        Hello! I'm <b>Rashee Vijay</b>, an MCA student and aspiring
+        web developer with a strong interest in technology and
+        software development. I enjoy building modern, responsive,
+        and user-friendly websites that combine creativity with
+        functionality.
+
+        I am currently learning Full Stack Web Development and
+        continuously improving my skills in HTML, CSS, JavaScript,
+        Java, PHP, and MySQL. I like exploring new technologies,
+        creating creative UI designs, and working on real-world
+        projects that help me gain practical experience.
+
+        My goal is to become a professional software developer
+        and contribute to innovative digital solutions.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="title">Skills</h2>
+
+    <div class="skills">
+
+      <div class="glass card">
+        <h3>HTML</h3>
+      </div>
+
+      <div class="glass card">
+        <h3>CSS</h3>
+      </div>
+
+      <div class="glass card">
+        <h3>JavaScript</h3>
+      </div>
+
+      <div class="glass card">
+        <h3>Java</h3>
+      </div>
+
+      <div class="glass card">
+        <h3>PHP</h3>
+      </div>
+
+      <div class="glass card">
+        <h3>MySQL</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="title">Projects</h2>
+
+    <div class="projects">
+
+      <div class="glass project-card">
+
+        <h3>Portfolio Website</h3>
+
+        <p>
+          Modern responsive portfolio website with dark mode
+          and glassmorphism design.
+        </p>
+
+      </div>
+
+      <div class="glass project-card">
+
+        <h3>IoT Presentation</h3>
+
+        <p>
+          Internet of Things research and presentation project.
+        </p>
+
+      </div>
+
+      <div class="glass project-card">
+
+        <h3>College Management</h3>
+
+        <p>
+          Database integrated management system project.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h2 class="title">Contact Me</h2>
+
+    <div class="glass">
+
+      <form>
+
+        <input type="text" placeholder="Enter Name">
+
+        <input type="email" placeholder="Enter Email">
+
+        <textarea rows="5" placeholder="Your Message"></textarea>
+
+        <button class="btn">
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 Rashee Vijay | All Rights Reserved
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    // DARK LIGHT MODE
+
+    function toggleMode(){
+
+      document.body.classList.toggle("light");
+
+    }
+
+    // TYPING EFFECT
+
+    const text = [
+
+      "Web Developer",
+      "UI Designer",
+      "MCA Student"
+
+    ];
+
+    let count = 0;
+    let index = 0;
+    let currentText = "";
+    let letter = "";
+
+    (function type(){
+
+      if(count === text.length){
+
+        count = 0;
+
+      }
+
+      currentText = text[count];
+
+      letter = currentText.slice(0, ++index);
+
+      document.getElementById("typing").textContent = letter;
+
+      if(letter.length === currentText.length){
+
+        count++;
+        index = 0;
+
+      }
+
+      setTimeout(type, 150);
+
+    })();
+
+  </script>
+
+</body>
+
+</html>
